@@ -18,14 +18,13 @@ public class StructuralPatternForm extends JFrame {
     private DefaultListModel<String> listModel;
     private JButton transferRight;
     private JButton transferLeft;
-    private JComboBox<String> comboBox1;
-    private ListToComboBoxAdapter<String> listToComboBoxAdapter = new ListToComboBoxAdapter<String>(comboBox1);
+    private JComboBox<String> comboBox;
     // For bridge
     private JButton asListButton;
     private JButton asTableButton;
     private JTable table;
-    private JList sourceList;
-    private JList list;
+    private JList<String> sourceList;
+    private JList<String> list;
 
     public StructuralPatternForm() {
         setContentPane(panel);
@@ -33,11 +32,12 @@ public class StructuralPatternForm extends JFrame {
         // For adapter
         left.setModel(listModel);
         left.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+        ListToComboBoxAdapter<String> listToComboBoxAdapter = new ListToComboBoxAdapter<String>(comboBox);
         transferRight.addActionListener(new ListsTransferListener(left, listToComboBoxAdapter));
         transferLeft.addActionListener(new ListsTransferListener(listToComboBoxAdapter, left));
         // For bridge
         sourceList.setModel(listModel);
-        list.setModel(new DefaultListModel());
+        list.setModel(new DefaultListModel<String>());
         ReflectingList reflectingListForList = new ReflectingList<String>(new ListBoxViewer<String>(list), sourceList);
         asListButton.addActionListener(new BridgeTransferListener(reflectingListForList));
         ReflectingList reflectingListForTable = new ReflectingList<String>(new TableViewer<String>(table), sourceList);

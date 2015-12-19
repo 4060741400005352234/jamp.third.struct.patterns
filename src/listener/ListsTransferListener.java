@@ -26,7 +26,11 @@ public class ListsTransferListener implements ActionListener {
         }
         DefaultListModel<String> fromListModel = (DefaultListModel<String>) fromList.getModel();
         DefaultListModel<String> toListModel = (DefaultListModel<String>) toList.getModel();
-        toListModel.addElement(value);
-        fromListModel.removeElement(value);
+        boolean removed = fromListModel.removeElement(value);
+        if (removed) {
+            toListModel.addElement(value);
+        } else {
+            throw new RuntimeException("Can't remove element from list.");
+        }
     }
 }

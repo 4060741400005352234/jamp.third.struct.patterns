@@ -37,7 +37,12 @@ public class ListToComboBoxAdapter<T> extends JList<T> {
         public boolean removeElement(Object obj) {
             int size = comboBox.getItemCount();
             comboBox.removeItem(obj);
-            return size < comboBox.getItemCount();
+            return size > comboBox.getItemCount();
+        }
+
+        @Override
+        public String toString() {
+            return comboBox.getModel().toString();
         }
     }
 }

@@ -12,8 +12,7 @@ public class ListToComboBoxAdapter<T> extends JList<T> {
 
     @Override
     public ListModel<T> getModel() {
-        DefaultListModel<T> listModel = new ComboBoxModelAdapter<T>(comboBox);
-        return listModel;
+        return new ComboBoxModelWrapper<T>(comboBox);
     }
 
     @Override
@@ -21,11 +20,11 @@ public class ListToComboBoxAdapter<T> extends JList<T> {
         return (T) comboBox.getSelectedItem();
     }
 
-    private class ComboBoxModelAdapter<E> extends DefaultListModel<E> {
+    private class ComboBoxModelWrapper<E> extends DefaultListModel<E> {
 
         private JComboBox<E> comboBox;
 
-        public ComboBoxModelAdapter(JComboBox<E> comboBox) {
+        public ComboBoxModelWrapper(JComboBox<E> comboBox) {
             this.comboBox = comboBox;
         }
 
@@ -36,8 +35,9 @@ public class ListToComboBoxAdapter<T> extends JList<T> {
 
         @Override
         public boolean removeElement(Object obj) {
+            int size = comboBox.getItemCount();
             comboBox.removeItem(obj);
-            return true;
+            return size < comboBox.getItemCount();
         }
     }
 }

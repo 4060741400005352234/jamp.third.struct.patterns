@@ -9,11 +9,8 @@ import java.awt.*;
 
 public class DecoratorFrame extends JFrame {
 
-    private JPanel buttonPanel;
-
     public DecoratorFrame() {
-        buttonPanel = new JPanel();
-
+        JPanel buttonPanel = new JPanel();
         setLayout(new GridLayout(1, 3));
         JButton red = new RedButtonDecorator("Red highlighted");
         buttonPanel.add(red);

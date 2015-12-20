@@ -1,8 +1,8 @@
 package decorator.main;
 
-import decorator.impl.BlueButtonDecorator;
-import decorator.impl.PinkButtonDecorator;
-import decorator.impl.RedButtonDecorator;
+import decorator.impl.BlueColorDecorator;
+import decorator.impl.PinkColorDecorator;
+import decorator.impl.RedColorDecorator;
 
 import javax.swing.*;
 import java.awt.*;
@@ -13,16 +13,13 @@ public class DecoratorFrame extends JFrame {
         JPanel buttonPanel = new JPanel();
         setLayout(new GridLayout(1, 3));
 
-        JButton redButton = new JButton("Red highlighted");
-        redButton = new RedButtonDecorator(redButton);
+        RedColorDecorator redButton = new RedColorDecorator(new JButton("Red highlighted"));
         buttonPanel.add(redButton);
 
-        JButton blueButton = new JButton("Blue highlighted");
-        blueButton = new BlueButtonDecorator(blueButton);
+        BlueColorDecorator blueButton = new BlueColorDecorator(new JButton("Blue highlighted"));
         buttonPanel.add(blueButton);
 
-        JButton pinkButton = new JButton("Pink highlighted");
-        pinkButton = new PinkButtonDecorator(pinkButton);
+        PinkColorDecorator pinkButton = new PinkColorDecorator(new JButton("Pink highlighted"));
         buttonPanel.add(pinkButton);
 
         add(buttonPanel);

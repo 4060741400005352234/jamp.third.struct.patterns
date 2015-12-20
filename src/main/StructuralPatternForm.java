@@ -29,6 +29,7 @@ public class StructuralPatternForm extends JFrame {
     public StructuralPatternForm() {
         setContentPane(panel);
         initLeftListModel();
+        this.setLocationRelativeTo(null);
         // For adapter
         left.setModel(listModel);
         left.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);

@@ -4,7 +4,6 @@ import bridge.viewer.ListViewer;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
 import java.util.List;
 
 public class TableViewer<T> implements ListViewer<T> {
@@ -18,11 +17,11 @@ public class TableViewer<T> implements ListViewer<T> {
     @Override
     public void view(List<T> list) {
         Object[][] tableData = new Object[list.size()][];
-        Object[] tableColumn = {"Values"};
+        Object[] tableColumn = {"No", "Values"};
         for (int i = 0; i < list.size(); ++i) {
-            tableData[i] = new Object[] {list.get(i)};
+            tableData[i] = new Object[] {i+1, list.get(i)};
         }
-        TableModel tableModel = new DefaultTableModel(tableData, tableColumn);
+        DefaultTableModel tableModel = new DefaultTableModel(tableData, tableColumn);
         table.setModel(tableModel);
     }
 }

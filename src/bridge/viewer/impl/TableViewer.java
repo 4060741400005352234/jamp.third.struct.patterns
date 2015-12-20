@@ -17,7 +17,7 @@ public class TableViewer<T> implements ListViewer<T> {
     @Override
     public void view(List<T> list) {
         Object[][] tableData = new Object[list.size()][];
-        Object[] tableColumn = {"No", "Values"};
+        Object[] tableColumn = new Object[2];
         for (int i = 0; i < list.size(); ++i) {
             tableData[i] = new Object[] {i+1, list.get(i)};
         }

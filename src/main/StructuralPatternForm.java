@@ -1,7 +1,7 @@
 package main;
 
 import adapter.ListToComboBoxAdapter;
-import bridge.reflect.impl.ReflectingList;
+import bridge.reflect.impl.ListBridge;
 import bridge.viewer.impl.ListBoxViewer;
 import bridge.viewer.impl.TableViewer;
 import listener.BridgeTransferListener;
@@ -39,10 +39,10 @@ public class StructuralPatternForm extends JFrame {
         // For bridge
         sourceList.setModel(listModel);
         list.setModel(new DefaultListModel<String>());
-        ReflectingList reflectingListForList = new ReflectingList<String>(new ListBoxViewer<String>(list), sourceList);
-        asListButton.addActionListener(new BridgeTransferListener(reflectingListForList));
-        ReflectingList reflectingListForTable = new ReflectingList<String>(new TableViewer<String>(table), sourceList);
-        asTableButton.addActionListener(new BridgeTransferListener(reflectingListForTable));
+        ListBridge listForListBridge = new ListBridge<String>(new ListBoxViewer<String>(list), sourceList);
+        asListButton.addActionListener(new BridgeTransferListener(listForListBridge));
+        ListBridge listBridgeForTable = new ListBridge<String>(new TableViewer<String>(table), sourceList);
+        asTableButton.addActionListener(new BridgeTransferListener(listBridgeForTable));
 
         pack();
     }

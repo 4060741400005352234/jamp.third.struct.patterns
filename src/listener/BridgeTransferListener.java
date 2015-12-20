@@ -1,20 +1,20 @@
 package listener;
 
-import bridge.reflect.Reflecting;
+import bridge.reflect.Bridge;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class BridgeTransferListener implements ActionListener {
 
-    private Reflecting reflecting;
+    private Bridge bridge;
 
-    public BridgeTransferListener(Reflecting reflecting) {
-        this.reflecting = reflecting;
+    public BridgeTransferListener(Bridge bridge) {
+        this.bridge = bridge;
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        reflecting.reflect();
+        bridge.performBridge();
     }
 }

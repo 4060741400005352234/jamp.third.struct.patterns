@@ -1,24 +1,24 @@
 package bridge.reflect.impl;
 
-import bridge.reflect.Reflecting;
+import bridge.reflect.Bridge;
 import bridge.viewer.ListViewer;
 
 import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ReflectingList<T> implements Reflecting {
+public class ListBridge<T> implements Bridge {
 
     private ListViewer<T> listViewer;
     private JList<T> list;
 
-    public ReflectingList(ListViewer<T> listViewer, JList<T> list) {
+    public ListBridge(ListViewer<T> listViewer, JList<T> list) {
         this.listViewer = listViewer;
         this.list = list;
     }
 
     @Override
-    public void reflect() {
+    public void performBridge() {
         List<T> listItems = getListItemsAsList();
         listViewer.view(listItems);
     }

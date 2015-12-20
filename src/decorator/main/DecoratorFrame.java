@@ -12,12 +12,18 @@ public class DecoratorFrame extends JFrame {
     public DecoratorFrame() {
         JPanel buttonPanel = new JPanel();
         setLayout(new GridLayout(1, 3));
-        JButton red = new RedButtonDecorator("Red highlighted");
-        buttonPanel.add(red);
-        JButton blue = new BlueButtonDecorator("Blue highlighted");
-        buttonPanel.add(blue);
-        JButton pink = new PinkButtonDecorator("Pink highlighted");
-        buttonPanel.add(pink);
+
+        JButton redButton = new JButton("Red highlighted");
+        redButton = new RedButtonDecorator(redButton);
+        buttonPanel.add(redButton);
+
+        JButton blueButton = new JButton("Blue highlighted");
+        blueButton = new BlueButtonDecorator(blueButton);
+        buttonPanel.add(blueButton);
+
+        JButton pinkButton = new JButton("Pink highlighted");
+        pinkButton = new PinkButtonDecorator(pinkButton);
+        buttonPanel.add(pinkButton);
 
         add(buttonPanel);
 

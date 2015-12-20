@@ -2,14 +2,15 @@ package decorator.impl;
 
 import decorator.ButtonDecorator;
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 public class BlueButtonDecorator extends ButtonDecorator {
 
-    public BlueButtonDecorator(String text) {
-        super(text);
+    public BlueButtonDecorator(JButton button) {
+        super(button);
         addMouseAdapter(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e) {

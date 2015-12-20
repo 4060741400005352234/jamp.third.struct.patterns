@@ -5,8 +5,11 @@ import java.awt.event.MouseAdapter;
 
 public abstract class ButtonDecorator extends JButton {
 
-    public ButtonDecorator(String text) {
-        super(text);
+    protected JButton decoratedButton;
+
+    public ButtonDecorator(JButton button) {
+        super(button.getText());
+        decoratedButton = button;
     }
 
     protected void addMouseAdapter(MouseAdapter adapter) {

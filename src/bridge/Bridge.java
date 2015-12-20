@@ -1,4 +1,4 @@
-package bridge.reflect;
+package bridge;
 
 public interface Bridge {
 

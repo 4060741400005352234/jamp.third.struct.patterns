@@ -1,6 +1,6 @@
-package bridge.reflect.impl;
+package bridge.impl;
 
-import bridge.reflect.Bridge;
+import bridge.Bridge;
 import bridge.viewer.ListViewer;
 
 import javax.swing.*;

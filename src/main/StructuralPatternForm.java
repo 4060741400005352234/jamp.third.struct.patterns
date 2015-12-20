@@ -1,7 +1,7 @@
 package main;
 
 import adapter.ListToComboBoxAdapter;
-import bridge.reflect.impl.ListBridge;
+import bridge.impl.ListBridge;
 import bridge.viewer.impl.ListBoxViewer;
 import bridge.viewer.impl.TableViewer;
 import listener.BridgeTransferListener;

@@ -1,6 +1,6 @@
 package listener;
 
-import bridge.reflect.Bridge;
+import bridge.Bridge;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

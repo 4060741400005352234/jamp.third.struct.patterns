@@ -1,5 +1,6 @@
 package facade.main;
 
+import facade.HRFacade;
 import model.Company;
 import model.Employee;
 

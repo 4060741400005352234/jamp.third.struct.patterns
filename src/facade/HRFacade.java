@@ -1,4 +1,4 @@
-package facade.main;
+package facade;
 
 import facade.main.db.AbstractDAO;
 import facade.main.db.ConnectionManager;

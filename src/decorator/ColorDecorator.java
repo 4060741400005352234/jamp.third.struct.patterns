@@ -5,9 +5,9 @@ import java.awt.*;
 
 public abstract class ColorDecorator extends JComponent {
 
-    protected JComponent decoratedComponent;
+    protected final JComponent decoratedComponent;
 
-    public ColorDecorator(JComponent component) {
+    public ColorDecorator(final JComponent component) {
         this.decoratedComponent = component;
         this.setLayout(new BorderLayout());
         this.add(component);

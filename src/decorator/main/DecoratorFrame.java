@@ -1,6 +1,7 @@
 package decorator.main;
 
 import decorator.impl.BlueColorDecorator;
+import decorator.impl.BorderDecorator;
 import decorator.impl.PinkColorDecorator;
 import decorator.impl.RedColorDecorator;
 
@@ -11,7 +12,7 @@ public class DecoratorFrame extends JFrame {
 
     public DecoratorFrame() {
         JPanel buttonPanel = new JPanel();
-        setLayout(new GridLayout(1, 3));
+        setLayout(new GridLayout(1, 4));
 
         RedColorDecorator redButton = new RedColorDecorator(new JButton("Red highlighted"));
         buttonPanel.add(redButton);
@@ -22,10 +23,13 @@ public class DecoratorFrame extends JFrame {
         PinkColorDecorator pinkButton = new PinkColorDecorator(new JButton("Pink highlighted"));
         buttonPanel.add(pinkButton);
 
+        BorderDecorator borderedRedButton = new BorderDecorator(new RedColorDecorator(new JButton("Another one")));
+        buttonPanel.add(borderedRedButton);
+
         add(buttonPanel);
 
         this.setVisible(true);
-        this.setSize(500, 100);
+        this.setSize(600, 100);
         this.setLocationRelativeTo(null);
     }
 
